@@ -1,0 +1,114 @@
+/* Good Girl Bad Girl: landscape frame and controls stay isolated from every other skin. */
+:root[data-skin="good-girl-bad-girl"],
+:root[data-skin="good-girl-bad-girl"] body {
+  width:100% !important; height:100% !important; min-height:100dvh !important; margin:0 !important;
+  overflow:hidden !important; background:#0c080a !important;
+}
+:root[data-skin="good-girl-bad-girl"] body { display:grid !important; place-items:center !important; }
+:root[data-skin="good-girl-bad-girl"] #game,
+:root[data-skin="good-girl-bad-girl"] #loadingScreen > .loading-canvas {
+  position:relative !important; width:min(100vw,177.78dvh) !important; height:min(56.25vw,100dvh) !important;
+  max-width:none !important; max-height:none !important; aspect-ratio:16/9 !important; margin:0 auto !important; overflow:hidden !important;
+}
+:root[data-skin="good-girl-bad-girl"] #game { background:#120e10 !important; box-shadow:0 14px 52px rgba(0,0,0,.62); }
+:root[data-skin="good-girl-bad-girl"] .loading-screen { z-index:100 !important; display:grid !important; place-items:center !important; background:#100b0d !important; }
+:root[data-skin="good-girl-bad-girl"] #loadingScreen > .loading-canvas { background:#100b0d !important; }
+:root[data-skin="good-girl-bad-girl"] #loadingScreen .loading-art {
+  position:absolute !important; inset:0 !important; display:block !important; width:100% !important; height:100% !important;
+  max-width:none !important; object-fit:contain !important; object-position:center !important; transform:none !important;
+}
+/* The supplied loading art already says “Loading…”. Preserve it exactly and avoid covering that text. */
+:root[data-skin="good-girl-bad-girl"] #loadingScreen .loading-ui { display:none !important; }
+:root[data-skin="good-girl-bad-girl"] #game .frame {
+  position:absolute !important; inset:0 !important; z-index:4 !important; display:block !important; pointer-events:none !important;
+}
+:root[data-skin="good-girl-bad-girl"] #game .frame img {
+  display:block !important; width:100% !important; height:100% !important; object-fit:contain !important;
+  object-position:center !important; pointer-events:none !important;
+}
+/* The main art's empty central gate is the 5×3 reel window. */
+:root[data-skin="good-girl-bad-girl"] #reels {
+  z-index:5 !important; left:23.2% !important; top:16.8% !important; width:53.6% !important; height:64.4% !important;
+  transform:none !important; overflow:hidden !important; border:0 !important; border-radius:0 !important;
+  background:rgba(8,8,14,.10) !important; box-shadow:none !important;
+}
+:root[data-skin="good-girl-bad-girl"] #reels::before {
+  content:"" !important; position:absolute !important; inset:0 !important; z-index:0 !important;
+  border-left:1px solid rgba(238,211,165,.18) !important; border-right:1px solid rgba(238,211,165,.18) !important;
+  pointer-events:none !important;
+}
+:root[data-skin="good-girl-bad-girl"] #reels::after { display:none !important; }
+:root[data-skin="good-girl-bad-girl"] #reels canvas { display:block !important; position:relative !important; z-index:1 !important; }
+:root[data-skin="good-girl-bad-girl"] .ui { z-index:8 !important; pointer-events:none !important; }
+:root[data-skin="good-girl-bad-girl"] .game .bet-bar,
+:root[data-skin="good-girl-bad-girl"] .game .balance-bar,
+:root[data-skin="good-girl-bad-girl"] .game .lines-bar,
+:root[data-skin="good-girl-bad-girl"] .game .announcement-panel { display:none !important; }
+:root[data-skin="good-girl-bad-girl"] .display {
+  display:none !important; position:absolute !important; z-index:9 !important; padding:0 !important;
+  border:0 !important; background:transparent !important; color:#fff0c7 !important;
+  text-shadow:0 1px 3px #170c06,0 0 5px rgba(214,147,70,.45) !important; pointer-events:none !important;
+}
+:root[data-skin="good-girl-bad-girl"] .display.balance,
+:root[data-skin="good-girl-bad-girl"] .display.bet {
+  display:flex !important; top:92.3% !important; height:6.4% !important; align-items:center !important; justify-content:center !important;
+}
+:root[data-skin="good-girl-bad-girl"] .display.balance { left:2.5% !important; width:17% !important; }
+:root[data-skin="good-girl-bad-girl"] .display.bet { left:20% !important; width:21% !important; }
+:root[data-skin="good-girl-bad-girl"] .display .control-box {
+  display:flex !important; width:100% !important; height:100% !important; flex-direction:row !important;
+  align-items:center !important; justify-content:center !important; gap:.45em !important;
+}
+:root[data-skin="good-girl-bad-girl"] .display .label { display:inline !important; font-size:clamp(7px,1.25vw,12px) !important; color:#f1d4a5 !important; }
+:root[data-skin="good-girl-bad-girl"] .display .value {
+  display:inline-block !important; padding:0 !important; color:#fff1c7 !important; font-size:clamp(10px,1.8vw,17px) !important;
+  line-height:1 !important; text-shadow:0 1px 2px #070606,0 0 4px #d08a3f !important;
+}
+:root[data-skin="good-girl-bad-girl"] .display.lines,
+:root[data-skin="good-girl-bad-girl"] .display.win,
+:root[data-skin="good-girl-bad-girl"] .display.jackpot { display:none !important; }
+/* Transparent hit targets match the printed main-screen controls. */
+:root[data-skin="good-girl-bad-girl"] .spin {
+  z-index:10 !important; left:45.4% !important; top:78.7% !important; width:9.2% !important; height:18.1% !important;
+  opacity:.01 !important; border:0 !important; border-radius:50% !important; pointer-events:auto !important; touch-action:manipulation !important;
+}
+:root[data-skin="good-girl-bad-girl"] .spin-art { display:none !important; }
+:root[data-skin="good-girl-bad-girl"] .betminus,
+:root[data-skin="good-girl-bad-girl"] .betplus,
+:root[data-skin="good-girl-bad-girl"] .menu,
+:root[data-skin="good-girl-bad-girl"] .ggbg-max-bet,
+:root[data-skin="good-girl-bad-girl"] .ggbg-info-hit {
+  z-index:10 !important; opacity:.01 !important; border:0 !important; border-radius:50% !important;
+  color:transparent !important; text-shadow:none !important; pointer-events:auto !important; touch-action:manipulation !important;
+}
+:root[data-skin="good-girl-bad-girl"] .betminus { left:54.2% !important; top:93.7% !important; width:3.2% !important; height:5.6% !important; }
+:root[data-skin="good-girl-bad-girl"] .betplus { left:64.6% !important; top:93.7% !important; width:3.2% !important; height:5.6% !important; }
+:root[data-skin="good-girl-bad-girl"] .menu { left:71.2% !important; top:84.1% !important; width:5.4% !important; height:10.5% !important; }
+:root[data-skin="good-girl-bad-girl"] .ggbg-info-hit { left:32.5% !important; top:84.1% !important; width:4.5% !important; height:10.5% !important; }
+:root[data-skin="good-girl-bad-girl"] .ggbg-max-bet { left:55.8% !important; top:84.5% !important; width:6.2% !important; height:9.5% !important; }
+:root[data-skin="good-girl-bad-girl"] .auto-spin,
+:root[data-skin="good-girl-bad-girl"] .lineup,
+:root[data-skin="good-girl-bad-girl"] .linedown,
+:root[data-skin="good-girl-bad-girl"] .auto-stop-overlay { display:none !important; }
+:root[data-skin="good-girl-bad-girl"] .paytable-modal { z-index:30 !important; background:rgba(12,8,12,.93) !important; }
+:root[data-skin="good-girl-bad-girl"] .paytable-card {
+  width:min(94vw,900px) !important; max-height:92dvh !important; overflow:auto !important;
+  background:#1c1416 !important; border:1px solid #bc9160 !important; color:#f7e3c0 !important;
+}
+:root[data-skin="good-girl-bad-girl"] .paytable-card table { color:#f7e3c0 !important; }
+:root[data-skin="good-girl-bad-girl"] .paytable-card th { color:#f2cf8d !important; }
+:root[data-skin="good-girl-bad-girl"] .paytable-rules span { color:#f1dfc7 !important; }
+:root[data-skin="good-girl-bad-girl"] .orientation-warning { display:none !important; }
+@media (orientation:portrait) and (max-width:900px) {
+  :root[data-skin="good-girl-bad-girl"] .orientation-warning {
+    display:flex !important; position:fixed !important; inset:0 !important; z-index:99999 !important;
+    align-items:center !important; justify-content:center !important; padding:10vw !important;
+    background:#100a0d !important; color:#f6e3c9 !important; font-weight:800 !important; text-align:center !important;
+  }
+}
+@media (max-width:700px) and (orientation:landscape) {
+  :root[data-skin="good-girl-bad-girl"] #game,
+  :root[data-skin="good-girl-bad-girl"] #loadingScreen > .loading-canvas {
+    width:min(100vw,177.78dvh) !important; height:min(56.25vw,100dvh) !important; aspect-ratio:16/9 !important; margin:auto !important;
+  }
+}
