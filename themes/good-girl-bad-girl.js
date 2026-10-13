@@ -19,7 +19,7 @@
    {key:'letter-k',label:'K',asset:`${root}symbols/letter-k.webp`},
    {key:'letter-a',label:'A',asset:`${root}symbols/letter-a.webp`},
    {key:'wild',label:'WILD',asset:`${root}symbols/wild.webp`,animationFrames:[`${root}symbols/wild.webp`,`${root}symbols/wild-2.webp`,`${root}symbols/wild-3.webp`]},
-   {key:'scatter',label:'SCATTER',asset:`${root}symbols/scatter.webp`},
+   {key:'scatter',label:'SCATTER',asset:`${root}symbols/scatter.webp`,animationFrames:[`${root}symbols/scatter.webp`,`${root}symbols/scatter-2.webp`]},
    {key:'bonus',label:'BONUS CHEST',asset:`${root}symbols/bonus-chest.webp`}
   ],
   visual:{symbolScale:.90,symbolScaleY:1,symbolFit:'cell-width',reelPerspective:.015},
