@@ -9,45 +9,25 @@ generator client {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
-  email       String   @unique
-  passwordHash String
-  role        String   @default("PLAYER")
-  balance     Int      @default(0)
-  isActive    Boolean  @default(true)
-  cashierId   Int?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  transactions Transaction[]
-
-  cashier Cashier?
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  passwordHash  String
+  role          String   @default("PLAYER")
+  balance       Int      @default(0)
+  isActive      Boolean @default(true)
+  cashierId     Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 model Transaction {
-  id          Int      @id @default(autoincrement())
-  amount      Int
-  type        String   @default("CREDIT")
-  fromUserId  Int?
-  toUserId   Int?
-  performedByUserId Int
-  timestamp   DateTime @default(now())
-  auditReason String
-
-  user User @relation(fields: [performedByUserId], references: [id])
-  fromUser User? @relation(fields: [fromUserId], references: [id])
-  toUser User? @relation(fields: [toUserId], references: [id])
-}
-
-model Cashier {
-  id          Int      @id @default(autoincrement())
-  name        String
-  email       String   @unique
-  passwordHash String
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  users User[]
+  id            Int      @id @default(autoincrement())
+  amount        Int
+  type          String   @default("CREDIT")
+  fromUserId    Int?
+  toUserId     Int?
+  performedByUserId Int?
+  timestamp     DateTime @default(now())
+  auditReason   String?
 }
 ```
