@@ -1,3 +1,4 @@
+```prisma
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -8,26 +9,39 @@ generator client {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
-  email       String   @unique
-  passwordHash String
-  role        String   @default("PLAYER")
-  balance     Int      @default(0)
-  isActive    Boolean  @default(true)
-  cashierId   Int?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id            Int        @id @default(autoincrement())
+  email         String    @unique
+  passwordHash  String
+  role          Role      @default("PLAYER")
+  balance       Int       @default(0)
+  isActive      Boolean   @default(true)
+  cashierId     Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
+  cashier      User?
   transactions Transaction[]
 }
 
-model Transaction {
-  id          Int      @id @default(autoincrement())
-  amount      Int
-  type        String   @default("CREDIT")
-  fromUserId  Int?
-  toUserId   Int?
-  performedByUserId Int
-  timestamp   DateTime @default(now())
-  auditReason String?
+enum Role {
+  SUPERADMIN
+  ADMIN
+  CASHIER
+  PLAYER
 }
+
+model Transaction {
+  id            Int        @id @default(autoincrement())
+  amount       Int
+  type          Type       @default("CREDIT")
+  fromUserId    Int?
+  toUserId    Int?
+  performedByUserId Int?
+  timestamp     DateTime @default(now())
+  auditReason   String?
+
+  fromUser      User?
+  toUser       User?
+  performedBy User?
+}
+```
