@@ -1,0 +1,4 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+model User { id Int @id @default(autoincrement()) email String @unique passwordHash String role String balance Int @default(0) isActive Boolean @default(true) cashierId Int? createdAt DateTime? updatedAt DateTime? }
+model Transaction { id Int @id @default(autoincrement()) amount Int type String fromUserId Int? toUserId Int? performedByUserId Int timestamp DateTime auditReason String }
