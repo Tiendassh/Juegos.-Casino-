@@ -2,7 +2,8 @@
 {
   "name": "casino-simulator",
   "version": "1.0.0",
-  "private": true,
+  "description": "Casino simulator project",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -18,12 +19,12 @@
     "@types/react-dom": "^18.0.11",
     "@prisma/client": "^5.0.0",
     "prisma": "^5.0.0",
-    "bcryptjs": "^2.5.1",
+    "bcryptjs": "^2.5.2",
     "jose": "^13.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.28.0",
+    "eslint": "^8.41.0",
     "eslint-config-next": "^13.4.1",
     "postcss": "^8.4.17",
     "tailwindcss": "^3.2.4"
